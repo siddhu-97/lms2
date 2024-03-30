@@ -1,0 +1,18 @@
+name: CI -> Deploy to My website
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Here is the deployment action
+      - name: Upload from public_html via FTP
+        uses: airvzxf/ftp-deployment-action@latest
+        with:
+          server: 172.105.127.109
+          user: traininghost4ind 
+          password: w8J9!j3o1
+          remote_dir: /public_html/lms2
+ 
